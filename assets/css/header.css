@@ -1,0 +1,76 @@
+.header{
+    background-color: white;
+    width: 100%;
+    display: flex; 
+    box-shadow: 1px -2px 20px 7px #ddd ;
+  }
+   
+  .header .log{
+    width: 40%;
+    float: left;
+  }
+  
+  .header .log img{
+    width: 20%;
+    margin-left:33%;
+    margin-top: 10px;
+  }
+  
+  .header .nav ul {
+    width: 45%;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .header .nav ul li{
+    margin-top: 15px;
+  }
+  
+  .header .nav ul li a{
+    color: #111;
+    transition: 0.3s;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    
+  
+  }
+  
+  .header .nav ul > li > a::after {
+    content: "";
+    background-color: rgb(21, 146, 125);
+    width: 0%;
+    display: block;
+    height: 2px;
+    transition: width 0.5s;
+  }
+  
+  
+  .header  .nav ul > li > a:hover::after {
+    width: 100%;
+  }
+  
+  
+  .header .but{
+   width: 15%;
+   height: 10px;
+   float: left;
+  }
+  
+  
+  .header .but button{
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #06ca27;
+    color: white;
+    border: rgb(21, 146, 125);
+    width: 40%;
+    height: 40px;
+    margin-left: 180px;
+    margin-top: 12px;
+    border :30px
+  }
+  

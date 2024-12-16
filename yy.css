@@ -1,0 +1,273 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+.blog{
+   width: 100%;
+   height: auto;
+   overflow: hidden;
+
+}
+.header22 {
+  background-color: #1bbd36;
+  width: 80% !important;
+  height: 60px;
+}
+.header22 h2 {
+  font-size: 2rem;
+  color: white;
+  padding-left: 215px;
+  padding-top: 10px;
+}
+.header1 {
+  background-color: #1bbd36;
+  width: 20% !important;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.header1 a {
+  color: white !important;
+  font-size: 21px;
+  padding-right: 10px;
+}
+
+.entry {
+   padding: 30px;
+   box-shadow: 0 0 25px 0px #efeeee;
+   margin-top: 30px;
+   width: 750px   !important;
+   margin-left: 100px  !important;
+}
+
+.entry-img {
+  max-height: 400px;
+  margin: -30px -30px 20px -30px;
+  overflow: hidden;
+}
+
+.entry-img img {
+  width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.ull {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  
+}
+.ull li {
+  size: 20px;
+  color: #5e5e5e;
+  transform: 1s;
+  list-style: none !important;
+  display:block !important;
+  width: 100px !important;
+}
+
+.ull a {
+  color: #5e5e5e;
+  list-style: none !important;
+  text-decoration: none;
+}
+.ull a:hover {
+  text-decoration: none;
+  color: #1bbd36;
+}
+.title {
+  text-decoration: none;
+  margin-left: -10px !important;
+  list-style: none;
+  color: #06ca27;
+  
+}
+.thre {
+  margin-left: -25px !important;
+}
+.asfl {
+  color: #5e5e5e;
+  margin-top: 15px;
+  margin-left: -12px
+}
+.learn {
+  background-color: #1bbd36;
+  display: inline-block;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  border-radius: 4px;
+  margin-left: 560px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+ 
+}
+.learn:hover {
+  background-color: #06ca27;
+  cursor: pointer;
+}
+.learn a {
+  color: white;
+  margin-top: 0px;
+  text-decoration: none;
+}
+.learn a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* ------------------------------------------ */
+
+.sidebar {
+  overflow: hidden;
+  border: 1px solid #efeeee;
+  box-shadow: 0 0 25px 0px #efeeee;
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 350px !important;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.search {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.searcch {
+  margin-bottom: 20px;
+  display: flex; 
+  align-items: center; 
+  margin-left: -12px
+}
+.ayyy{
+  display: flex; 
+  align-items: center; 
+  gap: 5px; 
+}
+.cat {
+  font-size: 20px;
+}
+
+.ser_all {
+  border-color: #06ca27;
+  margin-left: 0px !important;
+}
+
+.butt {
+  background-color: #06ca27;
+  padding: 8px 0px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border: none;
+  margin-left: -2px;
+  outline: none;
+}
+
+.butt i {
+  color: white;
+  padding: 12px;
+}
+
+.inpu {
+  border: 2px solid #dadcdc;
+  width: 236px !important;
+  height: 40px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.category ul {
+  margin-left: -40px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.category ul li {
+  padding: 5px;
+}
+
+.category ul li a {
+  color: #5e5e5e;
+}
+
+.recent {
+  margin-top: 15px;
+}
+
+.recent .recent-item {
+  height: 90px;
+}
+.recent .recent-item img {
+  width: 80px !important;
+  float: left;
+}
+
+.recent-item h4 {
+  font-size: 15px;
+  margin-left: 95px;
+  font-weight: bold;
+}
+
+.recent-item a {
+  color: #5e5e5e;
+}
+
+.recent-item time {
+  display: block;
+  margin-left: 95px;
+  font-style: italic;
+  font-size: 14px;
+  color: #777777;
+}
+
+.add {
+  margin-top: -10px;
+  padding: 0px;
+  margin-left: 40px
+}
+
+.add button {
+  background-color: #06ca27;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.modal {
+  z-index: 1060 !important;
+}
+
+.entite{
+   display: flex !important;
+   flex-wrap: nowrap !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   
+}
+
+
+@media (min-width: 992px) {
+    .col-lg-8 {
+        flex: 0 0 auto;
+        width: 60.666667%;
+        padding-left: 120px;
+    }
+}
