@@ -1,6 +1,6 @@
 <?php  
 session_start();
-require 'handel/database.php';
+require 'database.php';
 
 $id = $_GET['id'];
 $name = $_POST['name'];
@@ -10,8 +10,8 @@ $img = $_FILES['img'];
 
 
 
-    $uploadDir = 'assets/img/'; 
-    $fileName = uniqid() . '-' . basename($img['name']); // اسم فريد للملف
+    $uploadDir = '../assets/img/'; 
+    $fileName = uniqid() . '-' . basename($img['name']); 
     $filePath = $uploadDir . $fileName;
 
  
@@ -26,7 +26,7 @@ $img = $_FILES['img'];
         echo "Failed to upload the image.";
     }
 
-    header("location: blog.php?id=$id");
+    header("location: ../blog.php?id=$id");
 
 
 ?>

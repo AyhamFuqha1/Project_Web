@@ -20,7 +20,7 @@ $row1 = mysqli_fetch_all($countQuery1, MYSQLI_ASSOC);
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
-  <link href="yy.css" rel="stylesheet">
+  <link href="assets/css/blog.css" rel="stylesheet">
   <link href="assets/css/header.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -58,9 +58,6 @@ $row1 = mysqli_fetch_all($countQuery1, MYSQLI_ASSOC);
             $sql = "SELECT * From course where id = '{$course['id-cource']}'";
             $countQuery = mysqli_query($conn, $sql);
             $row2 = mysqli_fetch_assoc($countQuery);
-            
-            
-            
             ?>
           <article class="entry" data-aos="fade-up">
             <div class="entry-img">
@@ -169,7 +166,7 @@ $row1 = mysqli_fetch_all($countQuery1, MYSQLI_ASSOC);
           <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form id="myForm" onsubmit="SubmitHandler(event)" action="addcourse.php?id=<?php echo $id; ?>" enctype="multipart/form-data"
+        <form id="myForm" onsubmit="SubmitHandler(event)" action="handel/addcourse.php?id=<?php echo $id; ?>" enctype="multipart/form-data"
           method="POST">
           <div class="modal-body mb-3">
             <!-- مكان عرض الأخطاء -->
@@ -203,9 +200,9 @@ $row1 = mysqli_fetch_all($countQuery1, MYSQLI_ASSOC);
   </div>
 
 
-  <script src="newcourse.js"></script>
+  <script src="assets/js/newcourse.js"></script>
   <script src="aos/aos.js"></script>
-  <script src="bb.js"></script>
+  <script src="assets/js/bb.js"></script>
 
   <script>
     AOS.init();
