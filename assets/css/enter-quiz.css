@@ -1,0 +1,146 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+.hid{
+ /*  display:none !important; */
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 250, 245);
+  padding: 20px;
+  box-sizing: border-box;
+  display:none;
+}
+
+.hidden {
+  display: none;
+}
+#quiz-content {
+  display: flex;
+  flex-direction: row;
+  height: 85%;
+  gap: 20px;
+  border: 2px solid rgb(160, 155, 155);
+  border-radius: 10px;
+  box-shadow: 0 0 25px 0px #efeeee;
+  background-color: white;
+  margin-top: 30px;
+  position: relative;
+    
+}
+.question {
+  width: 50%;
+  padding-left: 70px;
+  padding-top: 105px;
+  font-size: 18px !important;
+}
+.answer {
+  /*     position: relative;
+    top: 120px;
+    left: 110px; */
+  margin-bottom: 15%;
+  margin-top: 5%;
+  margin-left: 8%;
+}
+.only{
+    margin-bottom: 20px;
+}
+.answer  span{
+    font-weight: bold;
+    font-size: 22px;
+    
+}
+.answer label {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(192, 192, 194);
+  margin-bottom: 25px;
+  border-radius: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  gap: 8px;
+  padding: 18px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+label:has(input[type="radio"]:checked) {
+    animation: borderAnimation 0.5s ease-out forwards;
+  }
+
+  @keyframes borderAnimation {
+    0% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 0px rgba(0, 123, 255, 0);
+    }
+  }
+.answer label input {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+}
+.answer label p {
+  font-size: 16px;
+  color: #000;
+}
+
+p {
+  margin-bottom: 0rem !important;
+  font-family: Arial, sans-serif;
+}
+
+.next {
+  background-color: #ff0080;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius:7px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px; 
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e60073;
+}
+
+
+.progress {
+    width: 200px;
+    height: 8px !important;
+}
+.hea{
+    font-size: 14px;
+    color: rgb(25, 0, 255);
+    font-family: Arial, sans-serif;
+
+}
