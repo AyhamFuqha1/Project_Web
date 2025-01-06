@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+
+.blog {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+
+}
+
+div.header22 {
+  width: 100% !important;
+  height: 60px;
+  margin-top: 40px;
+  margin-bottom: 18px;
+}
+.header22 span{
+  color:#343A40;
+  font-size: 26px;
+  font-family: 'Montserrat', sans-serif;
+}
+.header22 h2 {
+  font-size: 26px;
+  font-family: 'Montserrat', sans-serif;
+
+  color: #28A745;
+
+  padding-left: 67px;
+  padding-top: 10px;
+}
+.hrs {
+  border: none; /* Remove the default border */
+  height: 2px; /* Set the thickness of the line */
+  background-color: #343A40; /* Change this to your desired color */
+  width: 60%; /* Set the length of the line (e.g., 80% of the container) */
+  margin: 20px 20px 30px 58px;
+}
+
+.entite {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  padding: 0 !important;
+  margin: 0 !important;
+
+}
+
+@media (min-width: 992px) {
+  .col-lg-8 {
+    flex: 0 0 auto;
+    width: 60.666667%;
+    padding-left: 120px;
+  }
+}
+
+/* Container styling */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+body {
+
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  /* padding: 20px;*/
+}
+
+.content-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.content-description {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.content-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: rgb(12, 231, 12);
+  text-decoration: none;
+}
+
+.content-links a:hover {
+  text-decoration: underline;
+}
+
+.media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* Space between images */
+}
+
+.media-item {
+  flex: 1 1 calc(33.333% - 10px);
+  /* Three images per row with some space */
+  box-sizing: border-box;
+}
+
+.media-item img {
+  width: 100%;
+  /* Make images responsive */
+  height: auto;
+  /* Maintain aspect ratio */
+  border-radius: 5px;
+  /* Optional: rounded corners */
+}
+
+.content-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content-card h3 {
+  margin-top: 0;
+}
+
+.content-card p {
+  margin: 5px 0;
+}
+
+.btn-info {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-info:hover {
+  background-color: #0056b3;
+}
+
+.fixed-card {
+  position: fixed;
+  right: 20px;
+  top: 160px;
+  /* Adjust as needed */
+  width: 390px;
+  /* Fixed width */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  /* Ensure it stays on top */
+}
+
+.fixed-card h5 {
+  font-family: 'Poppins', sans-serif;
+  color: rgb(0, 12, 5);
+  margin-bottom: 10px;
+}
+
+.content-card {
+  background-color: #fefefe;
+  /* Lighter background */
+  border: 1px solid #e0e0e0;
+  /* Softer border */
+  border-radius: 10px;
+  /* More rounded corners */
+  margin-bottom: 20px;
+  padding: 20px;
+  /* More padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Deeper shadow */
+  transition: transform 0.2s;
+  /* Animation on hover */
+}
+
+.content-card:hover {
+  transform: scale(1.02);
+  /* Slightly enlarge on hover */
+}
+
+.content-title {
+  font-size: 1.6rem;
+  /* Slightly larger title */
+  font-weight: 600;
+  /* Bolder title */
+  color: #333;
+}
+
+.content-description {
+  font-size: 1.1rem;
+  /* Slightly larger description */
+  color: #666;
+  /* Softer color */
+  margin-top: 10px;
+}
+
+.custom-button {
+  background-color: rgb(29, 196, 68);
+  /* Change this to your desired color */
+  color: white;
+  /* Text color */
+  border: none;
+  /* Remove border */
+  padding: 9px 13px;
+  /* Padding */
+  border-radius: 8px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s;
+  /* Smooth transition */
+  margin-bottom: 20px;
+}
+
+.custom-button:hover {
+  background-color: #218838;
+  /* Darker shade on hover */
+}
+
+/** */
+.content-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.content-card:hover {
+  transform: scale(1.02);
+}
+
+.content-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.content-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Links Section */
+.content-links {
+  margin-top: 15px;
+}
+
+.content-links h5 {
+  margin-bottom: 10px;
+  color: rgba(1, 17, 4, 0.79);
+}
+
+.content-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content-links li {
+  margin: 5px 0;
+}
+
+.content-links a {
+  color: #218838;
+  text-decoration: none;
+}
+
+.content-links a:hover {
+  text-decoration: underline;
+}
+
+/* Media Section */
+.content-media {
+  margin-top: 15px;
+}
+
+.content-media h5 {
+  margin-bottom: 10px;
+  color: rgba(1, 17, 4, 0.79);
+}
+
+.media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media-item {
+  margin: 5px;
+  flex: 1 1 calc(33.333% - 10px);
+  /* 3 items per row */
+}
+
+.media-item img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Quizzes Section */
+.quizzes {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.quizzes h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.quizzes .content-card {
+  margin: 10px 0;
+  padding: 15px;
+  border-left: 5px solid rgb(29, 196, 68);
+}
+
+.quizzes .content-card h3 {
+  margin: 0;
+  color: rgb(29, 196, 68);
+}
+
+.quizzes .content-card p {
+  margin: 5px 0;
+}
+
+.custom-button {
+  background-color: rgb(29, 196, 68);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #218838;
+}
