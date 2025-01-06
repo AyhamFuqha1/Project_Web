@@ -15,21 +15,21 @@
   <div class="quiz-container" id="hid">
     <div style=" display: flex; align-items: center;  margin-left: 40%; gap:15px; margin-bottom: 10px;">
       <div class="hea">
-        <span>Question</span>
-        <span>12/16</span>
+        <span></span>
+        <span id="done">12/16</span>
       </div>
 
       <div class="progress">
-        <div class="progress-bar" style="width:20%"></div>
+        <div class="progress-bar" id="bar-question" style="width:0%; background-color: rgb(25, 0, 255);"></div>
       </div>
     </div>
-    <div style=" display: flex; align-items: center;  margin-left: 40%; gap:40px">
+    <div style=" display: flex; align-items: center;  margin-left: 40%; gap:32px">
       <div class="hea">
         <span>Time</span>
-        <span id="timee">12:50</span>
+        <span id="timee"></span>
       </div>
       <div class="progress">
-        <div class="progress-bar" style="width:20%"></div>
+        <div class="progress-bar" id="bar-time" style="width:20%; background-color: rgb(25, 0, 255);"></div>
       </div>
     </div>
     <div id="quiz-content">
@@ -38,8 +38,10 @@
          
         </p>
       </div>
+      <div class="only"> <span>Select only one</span></div>
+        
       <div class="answer" id="options">
-        <div class="only"> <span>Select only one</span></div>
+       
         
        
        

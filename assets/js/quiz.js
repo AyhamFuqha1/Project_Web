@@ -179,6 +179,7 @@ document.addEventListener("input", (event) => {
 
    
   if(target.matches('input[type="number"]')){
+    if(target.id!=="attempt"){
     const questionid = target.closest(".question1").id;
     const index=question.find((q) => q.id===questionid);
     if(index){
@@ -188,10 +189,12 @@ document.addEventListener("input", (event) => {
   }
 
   console.log(question);
+}
 });
 
 document.getElementById("savequiz").addEventListener("click", () => {
   const quizDateTime = document.getElementById("quiz-datetime").value;
+  const attempt1 = document.getElementById("attempt").value;
   const totalMarks = question.reduce((sum, current) => sum + parseInt(current.marks, 10), 0);
   fetch("/New%20folder%20(3)/handel/save-quiz.php", {
     method: "POST",
@@ -203,7 +206,8 @@ document.getElementById("savequiz").addEventListener("click", () => {
       time: time,
       questions: question,
       datetime: quizDateTime,
-      totalmarks:totalMarks
+      totalmarks:totalMarks,
+      attempt:attempt1,
     }),
   })
     .then((response) => response.text())

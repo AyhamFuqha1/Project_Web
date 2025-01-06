@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$email7 = isset($_GET['email']) ? $_GET['email'] : '';
+$password7 = isset($_GET['passward']) ? $_GET['passward'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +34,6 @@
 
 </div>
     <form method="post" action="handel/login.php" class="mt-5" style="margin-top: 6.5rem !important">
-
     <h3 id="logo">Login !</h3>
 
    <?php
@@ -44,10 +46,10 @@
     }?>
 
     <label for="username">Email</label>
-    <input type="text" id="email" name="email" placeholder="Type in your email.."  /> <br />
+    <input type="text" id="email" name="email" placeholder="Type in your email.."  value="<?php echo $email7; ?>"/> <br />
 
     <label for="password">Password</label>
-    <input type="password" id="passward" name="passward" placeholder="Enter your password.." autocomplete="off" required />
+    <input type="password" id="passward" name="passward" placeholder="Enter your password.." value="<?php  echo $password7; ?>" required />
 
     <input type="submit" name="submit" value="Login" />
   

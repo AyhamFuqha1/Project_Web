@@ -59,16 +59,23 @@ body {
     top: 120px;
     left: 110px; */
   margin-bottom: 15%;
-  margin-top: 5%;
+  margin-top: 7%;
   margin-left: 8%;
 }
 .only{
-    margin-bottom: 20px;
-}
+    margin-top: 20px;
+    position: absolute;
+    left: 59%;
+    top: 20px;
+} 
 .answer  span{
     font-weight: bold;
     font-size: 22px;
     
+}
+.only span{
+  font-weight: bold;
+  font-size: 26px;
 }
 .answer label {
   display: flex;

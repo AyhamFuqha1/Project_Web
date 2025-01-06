@@ -32,14 +32,19 @@
                         </div>
                         <div class="mb-3 p-2">
                             <label for="quiz-datetime" class="form-label">Quiz Date and Time</label>
-                            <input type="datetime-local" id="quiz-datetime" name="quiz-datetime" class="form-control" required>
+                            <input type="datetime-local" id="quiz-datetime" name="quiz-datetime" class="form-control"
+                                required>
                         </div>
                         <div class="mb-3 p-2">
                             <label for="name" class="form-label">Time Allowed (minutes)</label>
                             <input type="text" id="time" name="name" class="form-control" placeholder="Enter Time..."
                                 required>
                         </div>
-                       
+                        <div class="marks">
+                            <span>Number Of Attempt </span>
+                            <input type="number" value="1" min="0" id="attempt">
+                        </div>
+
 
                         <div class="question1 mb-4 p-3 border animate-question" id="question-0">
                             <div class="question d-flex justify-content-between align-items-center">
@@ -60,7 +65,7 @@
                                 <button class="btn btn-primary " onclick="addoption('question-0')">Add
                                     Option</button>
                             </div>
-                            
+
                             <div class="option">
                             </div>
                         </div>
@@ -70,7 +75,8 @@
                 </div>
                 <button class="btn btn-primary mb-3 mt-3 w-100" onclick="addquestion()">ADD Question</button>
                 <div class="save">
-                    <button id="savequiz" class="btn mb-3 mt-5 w-100" style="background-color: #1bbd36; color: white; ">Save Quiz</button>
+                    <button id="savequiz" class="btn mb-3 mt-5 w-100"
+                        style="background-color: #1bbd36; color: white; ">Save Quiz</button>
                 </div>
             </div>
         </div>
