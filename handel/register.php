@@ -9,25 +9,26 @@ $sql1="SELECT COUNT(id) as id FROM person WHERE email = '$email' ";
 $countQuery=mysqli_query($conn,$sql1);
 $count = mysqli_fetch_assoc($countQuery);
 $sql="INSERT INTO  person(`name`,`email`,`passward`,`type`) VALUES ('$name','$email','$password','$type')";
+$_SESSION['register']="yes";
  if($count['id']==0){
  if(strlen($name)<5){
-    $_SESSION['errors']="Name must between 8-12";
-    header("location: ../register.php");
+    $_SESSION['error']="Name must between 8-12";
+    header("location: ../login.php");
     exit();
 }
 if(strlen($email)<5){
-   $_SESSION['errors']="Email must more 5";
-   header("location: ../register.php");
+   $_SESSION['error']="Email must more 5";
+   header("location: ../login.php");
    exit();
 }
 if(strlen($password)<5){
-    $_SESSION['errors']="Passward must more 5";
-    header("location: ../register.php");
+    $_SESSION['error']="Passward must more 5";
+    header("location: ../login.php");
     exit();
 }
 if($type==null){
-    $_SESSION['errors']="Type must be chosen";
-    header("location: ../register.php");
+    $_SESSION['error']="Type must be chosen";
+    header("location: ../login.php");
     exit();
 }    
 if(mysqli_query($conn,$sql)){
@@ -38,8 +39,8 @@ if(mysqli_query($conn,$sql)){
  
 }
  else{
-    $_SESSION['errors']="The email is already there";
-    header("location: ../register.php");
+    $_SESSION['error']="The email is already there";
+    header("location: ../login.php");
  }
 
 ?> 

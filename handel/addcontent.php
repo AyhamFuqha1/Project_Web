@@ -20,7 +20,7 @@ $links = isset($_POST['links']) ? $_POST['links'] : [];
 
 
 // Process uploaded files
-$img = $_FILES['contentMedia'];
+ $img = $_FILES['contentMedia'];
 
     $uploadDir = '../assets/img/'; 
     $fileName = uniqid() . '-' . basename($img['name']); 
@@ -33,6 +33,7 @@ $img = $_FILES['contentMedia'];
         if (mysqli_query($conn, $sql)) {
            $content_id = mysqli_insert_id($conn);
            foreach ($links as $link) {
+           
               $sqlLink = "INSERT INTO links (content_id, url) VALUES ('$content_id', '" . mysqli_real_escape_string($conn, $link) . "')";
               mysqli_query($conn, $sqlLink);
             }
@@ -49,23 +50,7 @@ $img = $_FILES['contentMedia'];
     }
     
    
-/*
-$media_files = [];
-if (!empty($_FILES['media']['name'][0])) {
-    $uploadDir = '../uploads/';
-    foreach ($_FILES['media']['tmp_name'] as $key => $tmp_name) {
-        $fileName = basename($_FILES['media']['name'][$key]);
-        $filePath = $uploadDir . $fileName;
 
-        if (move_uploaded_file($tmp_name, $filePath)) {
-            $media_files[] = $fileName;
-        }
-    }
-}*/
-
-
-
-// Redirect back to the subject page
 header("location: ../subject_details.php?id=$subject_id");
 exit;
 

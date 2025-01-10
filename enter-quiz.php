@@ -1,6 +1,12 @@
+<?php
+session_start();
+$idstudent = $_SESSION["idpearson"];
+$idquiz = $_GET["quiz_id"];
 
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
   <meta charset="UTF-8">
@@ -11,7 +17,7 @@
 </head>
 
 <body>
-  <button class="next" id="start-quiz">Start Quiz</button>
+ <!--  <button class="next" id="start-quiz">Start Quiz</button> -->
   <div class="quiz-container" id="hid">
     <div style=" display: flex; align-items: center;  margin-left: 40%; gap:15px; margin-bottom: 10px;">
       <div class="hea">
@@ -33,23 +39,27 @@
       </div>
     </div>
     <div id="quiz-content">
-      <div class="question" >
+      <div class="question">
         <p id="question">
-         
+
         </p>
       </div>
       <div class="only"> <span>Select only one</span></div>
-        
+
       <div class="answer" id="options">
-       
-        
-       
-       
+
+
+
+
 
       </div>
       <button class="next" onclick="next()" id="buttonnext">Next Question</button>
     </div>
   </div>
+  <script>
+    var idquiz = <?php echo json_encode($idquiz); ?>;
+    var idstudent = <?php echo json_encode($idstudent); ?>;
+  </script>
   <script src="assets/js/enter-quiz.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>

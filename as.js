@@ -1,18 +1,4 @@
-const element = document.documentElement;
-document.getElementById("start-quiz").addEventListener("click", function () {
-  // طلب وضع ملء الشاشة
-  // الصفحة بالكامل
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen(); // للمتصفحات مثل Safari
-  } else if (element.msRequestFullscreen) {
-    element.msRequestFullscreen(); // للمتصفحات مثل IE/Edge
-  }
-});
-const button = document.getElementById("start-quiz");
-const quizContent = document.getElementById("hid");
-let questions = [];
+/*let questions = [];
 let answers = [];
 let count = 0;
 let id_quiz;
@@ -22,13 +8,13 @@ const answer = [];
 let done = 1;
 let attempt;
 
-
+fetch("/New%20folder%20(3)/handel/enter-quiz.php")
 fetch("/New%20folder%20(3)/handel/enter-quiz.php", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
   },
-  body: JSON.stringify({ idquiz: '1',
+  body: JSON.stringify({ idquiz: idquiz ,
     idstudent:idstudent
   }), // إرسال idquiz
 })
@@ -56,6 +42,7 @@ button.addEventListener("click", () => {
   quizContent.style.display = "block";
   button.style.display = "none";
   attempt++;
+  console.log(idquiz);
   }
   else{
    prompt("nubmer of attempt is enf");

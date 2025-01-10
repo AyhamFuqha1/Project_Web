@@ -1,14 +1,13 @@
 <?php
 require('handel/database.php');
-$a = "SELECT * From gardes WHERE id_quiz=15";
+$id_quiz=$_GET['id_quiz'];
+$a = "SELECT * From gardes WHERE id_quiz=".$id_quiz;
 $b = mysqli_query($conn, $a);
 if (mysqli_num_rows($b) > 0) {
     $grades = mysqli_fetch_all($b, MYSQLI_ASSOC);
-} else {
-    echo "no";
-}
+} 
 
-$sql = "SELECT `total-marks` From quiz WHERE id=15";
+$sql = "SELECT `total-marks` From quiz WHERE id=$id_quiz";
 $connection = mysqli_query($conn, $sql);
 $marks = mysqli_fetch_all($connection, MYSQLI_ASSOC);
 
@@ -90,7 +89,7 @@ $marks = mysqli_fetch_all($connection, MYSQLI_ASSOC);
                             <?php }
                         } else { ?>
                             <tr>
-                                <td colspan="6" style="text-align:center"> No Admin Data </td>
+                                <td colspan="6" style="text-align:center"> No Grade Data </td>
                             </tr>
                         <?php }
                         ?>

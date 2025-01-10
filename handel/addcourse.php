@@ -16,7 +16,7 @@ $img = $_FILES['img'];
 
  
     if (move_uploaded_file($img['tmp_name'], $filePath)) {
-        $sql = "INSERT INTO course(`name`, `description`, `img`,`year`,`pearson_id`) VALUES('$name', '$des','$fileName','$year','5')";
+        $sql = "INSERT INTO course(`name`, `description`, `img`,`year`) VALUES('$name', '$des','$fileName','$year')";
         $countQuery = mysqli_query($conn, $sql);
         $idc=mysqli_insert_id($conn);
         $sql1 = "INSERT INTO `enrollment table`(`id-cource`, `id_pearson`) VALUES('$idc','$id')";

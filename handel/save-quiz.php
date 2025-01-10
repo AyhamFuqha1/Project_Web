@@ -13,7 +13,8 @@ if ($quiz) {
     $questions = $quiz['questions'];
     $totalmarks =$quiz['totalmarks'];
     $attempt=$quiz['attempt'];
-    $sql = "INSERT INTO quiz(`title`,`date-time`,`time_allow`,`total-marks`,`number_attempt`)  VALUES ('$title','$datetime','$time','$totalmarks','$attempt') ";
+    $id_course=$quiz['id_coursee'];
+    $sql = "INSERT INTO quiz(`title`,`date-time`,`time_allow`,`total-marks`,`number_attempt`,`course_id`)  VALUES ('$title','$datetime','$time','$totalmarks','$attempt','$id_course') ";
     if (mysqli_query($conn, $sql)) {
         $quizId = mysqli_insert_id($conn);
     }

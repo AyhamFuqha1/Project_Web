@@ -1,3 +1,7 @@
+<?php 
+$id_course=intval($_GET['id']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,6 +135,7 @@
     <script src="assets/js/quiz.js"></script>
     <script>
         AOS.init();
+        let id_course=<?php echo json_encode($id_course);  ?> 
     </script>
 </body>
 

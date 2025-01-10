@@ -19,6 +19,10 @@ $contents = mysqli_fetch_all($countQueryContent, MYSQLI_ASSOC);
 $quizSql = "SELECT * FROM quiz WHERE course_id = '$subject_id'";
 $quizQuery = mysqli_query($conn, $quizSql);
 $quizzes = mysqli_fetch_all($quizQuery, MYSQLI_ASSOC);
+
+$idstudent = $_SESSION["idpearson"];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -262,8 +266,9 @@ $quizzes = mysqli_fetch_all($quizQuery, MYSQLI_ASSOC);
                                                         </p>
                                                         <p>Number of Attempts: <?php echo htmlspecialchars($quiz['number_attempt']); ?>
                                                         </p>
-                                                        <a href="take_quiz.php?quiz_id=<?php echo $quiz['id']; ?>"
+                                                        <a onclick="enter(<?php echo $quiz['id']; ?>, <?php echo $_SESSION['idpearson']; ?>)"
                                                             class="custom-button btn btn-success">Take Exam</a>
+
                                                     </div>
                                                 <?php endwhile; ?>
                                             <?php else: ?>
@@ -326,6 +331,44 @@ $quizzes = mysqli_fetch_all($quizQuery, MYSQLI_ASSOC);
             </div>
         </div>
     </section>
+    <script>
+        function enter(idquiz, idpearson) {
+          
+            fetch("/New%20folder%20(3)/handel/check.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    idquiz: idquiz,
+                    idstudent: idpearson
+                }),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    let attempt = data.attempt;
+                    let time = data.number;
+                    console.log(attempt);
+                    console.log(time);
+
+                    // تحقق من عدد المحاولات
+                    if (parseInt(attempt) < parseInt(time.number_attempt)) {
+                    
+                        alert("You can start the quiz");
+                    } else {
+                        alert("Number of attempts is finished");
+                    }
+                })
+                .catch((error) => {
+                    console.error("There was a problem with the fetch operation:", error);
+                });
+        }
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

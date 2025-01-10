@@ -341,6 +341,12 @@ $contents = mysqli_fetch_all($countQueryContent, MYSQLI_ASSOC);
         .custom-button:hover {
             background-color: #218838;
         }
+
+        .header22 {
+            margin-left: 65px;
+        }
+
+        .newstudent {}
     </style>
 </head>
 
@@ -455,7 +461,8 @@ $contents = mysqli_fetch_all($countQueryContent, MYSQLI_ASSOC);
                                                         <p>Number of Attempts: <?php echo htmlspecialchars($quiz['number_attempt']); ?>
                                                         </p>
                                                         <button class="custom-button" class="btn btn-info"
-                                                            onclick="showQuizResults(<?php echo $quiz['id']; ?>)">Show Results</button>
+                                                            onclick="window.location.href='grades.php?id_quiz=<?php echo $quiz['id'] ?>'">Show
+                                                            Results</button>
                                                     </div>
                                                 <?php endwhile; ?>
                                             <?php else: ?>
@@ -474,8 +481,26 @@ $contents = mysqli_fetch_all($countQueryContent, MYSQLI_ASSOC);
                     <button class="custom-button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#addContentModal">Add
                         Content</button>
-                    <h5>Add New Quiz</h5>
-                    <button class="custom-button" class="btn btn-primary">Add Quiz</button>
+                    <button class="custom-button" class="btn btn-primary"
+                        onclick="window.location.href='quiz.php?id=<?php echo $subject_id; ?>'">Add Quiz</button>
+                    <form action="handel/add_student.php?id=<?php echo $subject_id; ?>" method="POST">
+                        <div class="col">
+                            <h6 class="mb-3">Add Student</h6>
+                            <?php
+                            if (isset($_SESSION['er'])) { ?>
+                                <div class="alert alert-danger " role="alert" style=" padding: 10px; hight:10px">
+                                    <?php echo $_SESSION['er']; ?>
+                                </div>
+                                <?php
+                                unset($_SESSION['er']);
+                            } ?>
+                            <div class="">
+                                <input type="text" class="form-control" name="email">
+                                <button class="btn btn-primary mt-3 " style="background-color:#218838;">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
 
 
@@ -566,7 +591,7 @@ $contents = mysqli_fetch_all($countQueryContent, MYSQLI_ASSOC);
             });
         });
     </script>
-    <script src="assets/js/calenderjs.js"></script>
+    
     <script>
         function showQuizResults(quizId) {
             // Implement the logic to show quiz results

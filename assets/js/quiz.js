@@ -10,7 +10,9 @@ let title = null;
 let time = 0;
 let questionCount = 1;
 let box = 2;
+
 function addquestion() {
+
   questionCount++;
   const questionDiv = document.createElement("div");
   questionDiv.className = "question1 mb-4 p-3 border animate-question";
@@ -208,6 +210,7 @@ document.getElementById("savequiz").addEventListener("click", () => {
       datetime: quizDateTime,
       totalmarks:totalMarks,
       attempt:attempt1,
+       id_coursee:id_course, 
     }),
   })
     .then((response) => response.text())

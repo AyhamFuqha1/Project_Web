@@ -12,6 +12,7 @@ $count = mysqli_fetch_assoc($countQuery);
 if (mysqli_num_rows($countQuery) > 0) {
     if ($count['passward'] == $passward) {
         header("Location: ../blog.php?id=" . $count['id']);
+        $_SESSION["idpearson"]=$count['id'];
         exit();
     } else {
         $_SESSION['errors'] = "Password incorrect";
