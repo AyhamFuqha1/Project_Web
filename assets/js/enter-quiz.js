@@ -1,15 +1,3 @@
-const element = document.documentElement;
-document.getElementById("start-quiz").addEventListener("click", function () {
-  // طلب وضع ملء الشاشة
-  // الصفحة بالكامل
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen(); // للمتصفحات مثل Safari
-  } else if (element.msRequestFullscreen) {
-    element.msRequestFullscreen(); // للمتصفحات مثل IE/Edge
-  }
-});
 const button = document.getElementById("start-quiz");
 const quizContent = document.getElementById("hid");
 let questions = [];
@@ -22,15 +10,12 @@ const answer = [];
 let done = 1;
 let attempt;
 
-
 fetch("/New%20folder%20(3)/handel/enter-quiz.php", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
   },
-  body: JSON.stringify({ idquiz: '1',
-    idstudent:idstudent
-  }), // إرسال idquiz
+  body: JSON.stringify({ idquiz: idquiz, idstudent: idstudent }), // إرسال idquiz
 })
   .then((response) => {
     if (!response.ok) {
@@ -51,7 +36,7 @@ fetch("/New%20folder%20(3)/handel/enter-quiz.php", {
     console.error("There was a problem with the fetch operation:", error);
   });
 
-button.addEventListener("click", () => {
+/* button.addEventListener("click", () => {
   if(parseInt(attempt) < parseInt(time.number_attempt)){
   quizContent.style.display = "block";
   button.style.display = "none";
@@ -60,46 +45,100 @@ button.addEventListener("click", () => {
   else{
    prompt("nubmer of attempt is enf");
   }
-});
+}); */
 let timor;
+
+/* document.addEventListener("DOMContentLoaded", function () {
+  const element = document.documentElement; // العنصر الذي سيتم جعله في وضع ملء الشاشة
+
+  // إظهار رسالة تنبيه لتنبيه المستخدم
+  if (confirm("Do you want to enter fullscreen mode?")) {
+    // إذا ضغط المستخدم على "OK"، يتم الدخول إلى وضع ملء الشاشة
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen(); // Safari
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen(); // IE/Edge
+    }
+  } else {
+    // إذا ضغط المستخدم على "Cancel"
+    alert("Fullscreen mode canceled.");
+  }
+}); */
+document.addEventListener("DOMContentLoaded", function () {
+  const element = document.documentElement; 
+
+
+  document.addEventListener("click", function () {
+      if (element.requestFullscreen) {
+          element.requestFullscreen()
+              .catch(err => {
+                  console.error("Error entering fullscreen:", err);
+              });
+      } else if (element.webkitRequestFullscreen) {
+          element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) {
+          element.msRequestFullscreen();
+      } else {
+          alert("Fullscreen mode is not supported in this browser.");
+      }
+  }, { once: true }); 
+});
+
 function show() {
-  
-  console.log(idstudent);
+  /* const element = document.documentElement;
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen(); // Safari
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen(); // IE/Edge
+  } */
+  attempt++;
   document.getElementById("bar-time").style.width = `100%`;
-  document.getElementById("done").innerHTML=`Question ${done}/${questions.length}`;
-  document.getElementById("bar-question").style.width = `${(done * 100) / questions.length}%`;
-  console.log(time.time_allow);
+  document.getElementById(
+    "done"
+  ).innerHTML = `Question ${done}/${questions.length}`;
+  document.getElementById("bar-question").style.width = `${
+    (done * 100) / questions.length
+  }%`;
+
   timm = parseInt(time.time_allow) * 60 * 1000;
   remaning = timm / 1000;
-  console.log(remaning);
   document.getElementById("question").innerHTML = questions[count].text;
   const options = document.getElementById("options");
   options.innerHTML = "";
   starttimer();
-  timor=setTimeout(endquiz, timm);
+  timor = setTimeout(endquiz, timm);
   answers.forEach((element, index) => {
     if (element.id_question === questions[count].id) {
+      console.log("ayham");
       const option = document.createElement("label");
       option.htmlFor = `${element.id}-${element.id_question}`;
       option.innerHTML = `
       <input class="form-check-input" type="radio" name="exampleRadios" id="${element.id}-${element.id_question}" value="option1">
       <p>${element.text}</p>
   `;
-    console.log(`${element.id}-${element.id_question}`);
-     options.appendChild(option);
+
+      options.appendChild(option);
     }
   });
-  count++; 
+  count++;
   done++;
 }
 
 function next() {
-  document.getElementById("bar-question").style.width = `${(done * 100) / questions.length}%`;
-  document.getElementById("done").innerHTML=`Question ${done}/${questions.length}`;
+  document.getElementById("bar-question").style.width = `${
+    (done * 100) / questions.length
+  }%`;
+  document.getElementById(
+    "done"
+  ).innerHTML = `Question ${done}/${questions.length}`;
   const select = document.querySelector('input[name="exampleRadios"]:checked');
   if (select) {
     const idselect = select.id;
-   
+
     const [idanswer, idquestion] = idselect.split("-");
     fetch("/New%20folder%20(3)/handel/save-answer.php", {
       method: "POST",
@@ -111,7 +150,7 @@ function next() {
         id_question: idquestion,
         id_answer: idanswer,
         id_quiz: id_quiz,
-        numattempt:attempt
+        numattempt: attempt,
       }),
     })
       .then((response) => response.text())
@@ -146,40 +185,37 @@ function next() {
 }
 
 function endquiz() {
-  
-  quizContent.style.display = "none";
-  button.style.display = "block";
-  if (document.exitFullscreen) {
+  /* if (document.exitFullscreen) {
     document.exitFullscreen(); 
   } else if (document.webkitExitFullscreen) {
     document.webkitExitFullscreen(); 
   } else if (document.msExitFullscreen) {
     document.msExitFullscreen(); 
-  }
-  console.log(attempt);
-  console.log(id_quiz);
+  } */
+
   setTimeout(() => {
-  fetch("/New%20folder%20(3)/handel/end_quiz.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-     body: JSON.stringify({
-     attempt:attempt,
-     id_student: idstudent,
-     id_quiz: id_quiz,
-    }),
-  })
- 
-    .then((response) => response.text())
-    .then((data) => {
-      console.log("Answer saved:", data);
+    clearTimeout(timor);
+    fetch("/New%20folder%20(3)/handel/end_quiz.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        attempt: attempt,
+        id_student: idstudent,
+        id_quiz: id_quiz,
+      }),
     })
-    .catch((error) => console.error("Error saving answer:", error));
-  },2000)
+      .then((response) => response.text())
+      .then((data) => {
+        console.log("Answer saved:", data);
+        window.history.back();
+      })
+      .catch((error) => console.error("Error saving answer:", error));
+  }, 2000);
+
+     
 }
-
-
 
 function starttimer() {
   const showtime = document.getElementById("timee");
@@ -189,13 +225,14 @@ function starttimer() {
     } else {
       const min = Math.floor(remaning / 60);
       const sec = remaning % 60;
-      document.getElementById("bar-time").style.width = `${(remaning * 100) / (timm/1000)}%`;
+      document.getElementById("bar-time").style.width = `${
+        (remaning * 100) / (timm / 1000)
+      }%`;
       showtime.textContent = `${min}:${sec < 10 ? "0" + sec : sec}`;
-      if(sec<=10&&min==0){
+      if (sec <= 10 && min == 0) {
         document.getElementById("bar-time").style.backgroundColor = "red";
       }
     }
     remaning--;
   }, 1000);
 }
- 

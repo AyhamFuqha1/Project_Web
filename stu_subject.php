@@ -333,7 +333,7 @@ $idstudent = $_SESSION["idpearson"];
     </section>
     <script>
         function enter(idquiz, idpearson) {
-          
+
             fetch("/New%20folder%20(3)/handel/check.php", {
                 method: "POST",
                 headers: {
@@ -356,10 +356,9 @@ $idstudent = $_SESSION["idpearson"];
                     console.log(attempt);
                     console.log(time);
 
-                    // تحقق من عدد المحاولات
+
                     if (parseInt(attempt) < parseInt(time.number_attempt)) {
-                    
-                        alert("You can start the quiz");
+                        window.location.href = 'enter-quiz.php?quiz_id=' + idquiz;
                     } else {
                         alert("Number of attempts is finished");
                     }
